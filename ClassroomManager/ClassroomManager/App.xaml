@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ClassroomManager.App">
+    <Application.Resources>
+
+        <Color x:Key="NavigationPrimary">#000000</Color>
+        <Color x:Key="ContentPageBackground">#292929</Color>
+        <Color x:Key="NavigationTextColor">#A98C4A</Color>
+        <Color x:Key="GoldColor">#A98C4A</Color>
+        <Color x:Key="GoldColorDarker">#746033</Color>
+        <Color x:Key="ButtonRedColor">#88ff0000</Color>
+        <Color x:Key="DisabledColor">#44FF4000</Color>
+
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+            <Setter Property="BarTextColor" Value="{StaticResource NavigationTextColor}" />
+        </Style>
+
+        <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+            <Setter Property="BackgroundColor" Value="{StaticResource ContentPageBackground}" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+
+        <Style TargetType="Picker">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="TitleColor" Value="White" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource GoldColorDarker}" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="PlaceholderColor" Value="#CCFFFFFF" />
+        </Style>
+        
+    </Application.Resources>
+</Application>

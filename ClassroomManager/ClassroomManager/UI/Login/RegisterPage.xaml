@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Appearing="ContentPage_Appearing"
+             Title="Création d'un compte"             
+             NavigationPage.HasNavigationBar="false"
+             x:Class="ClassroomManager.UI.Login.RegisterPage">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+
+            <Grid  Margin="0,60" VerticalOptions="Start">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--<Label Grid.Row="0" Text="Classroom Manager" FontSize="50"
+                       HorizontalTextAlignment="Center" Margin="0,20"/>-->
+                <Label Grid.Row="1" Text="Veuillez rentrer vos identifiants pour créer un nouveau compte"
+                       FontSize="25" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" WidthRequest="350"/>
+            </Grid>
+
+
+            <Grid  HorizontalOptions="Center" VerticalOptions="Center" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- EMAIL-->
+                <Grid Grid.Row="0">
+                    <Entry x:Name="entryEmail" Placeholder="Email" WidthRequest="300"
+                           VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Completed="EntryEmail_Completed"/>
+                </Grid>
+
+                <!-- PASSWORD -->
+                <Grid Grid.Row="1">
+                    <Entry x:Name="entryPassword" Placeholder="Mot de passe" WidthRequest="300" IsPassword="True"
+                           VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Completed="EntryPassword_Completed" />
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Entry x:Name="entryConfirmPassword" Placeholder="Confirmez le mot de passe" WidthRequest="300" IsPassword="True"
+                           VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Completed="EntryPassword_Completed" />
+                </Grid>
+                
+                <Grid Grid.Row="3">
+                    <Button x:Name="btnValidate" Text="VALIDER" HorizontalOptions="Center" Margin="0,10"
+                        CornerRadius="10" Padding="70,15"
+                        Clicked="BtnValidate_Clicked" />
+                </Grid>
+                
+            </Grid>
+
+            <Label x:Name="lblErrorPassword" Margin="0,0,0,200"
+                   FontAttributes="Italic" HorizontalOptions="Center" VerticalOptions="End"
+                   FontSize="12" TextColor="Red" IsVisible="False"
+                   Text="Le mot de passe n'est pas identique à sa confirmation" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
