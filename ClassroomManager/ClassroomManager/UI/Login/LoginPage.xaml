@@ -3,13 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" Title="Authentification"             
+             mc:Ignorable="d" Title="Authentification"          
+             Appearing="ContentPage_Appearing"
              NavigationPage.HasNavigationBar="false"
              x:Class="ClassroomManager.UI.Login.LoginPage">
     <ContentPage.Content>
-        <Grid HorizontalOptions="Center" VerticalOptions="FillAndExpand">      
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <Grid  Margin="0,60" VerticalOptions="Start">
+            <Grid  Margin="0,60" VerticalOptions="Start" HorizontalOptions="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -55,6 +56,11 @@
                     <TapGestureRecognizer Tapped="CreateAccountlbl_Tapped" />
                 </Label.GestureRecognizers>
             </Label>
+
+            <Grid x:Name="loaderGrid" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                  BackgroundColor="#88000000" IsVisible="False">
+                <ActivityIndicator IsRunning="True" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Grid>
             
         </Grid>
     </ContentPage.Content>

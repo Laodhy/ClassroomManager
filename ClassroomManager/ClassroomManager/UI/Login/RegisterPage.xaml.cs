@@ -1,5 +1,6 @@
 ﻿using ClassroomManager.API;
 using ClassroomManager.Models;
+using ClassroomManager.UI.MasterDetail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,7 @@ namespace ClassroomManager.UI.Login
                 else 
                     lblErrorPassword.IsVisible = false;
 
+                loaderGrid.IsVisible = true;
                 bool isAuth = await ApiManager.Instance.Register(new UserAuthentification()
                 {
                     Email = email,
@@ -71,12 +73,16 @@ namespace ClassroomManager.UI.Login
                 else
                 {
                     //Change page
-                    await DisplayAlert("Test", "Auth", "cancel");
+                    App.Current.MainPage = new MasterPage();
                 }
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Erreur", ex.Message, "Ok");
+            }
+            finally
+            {
+                loaderGrid.IsVisible = false;
             }
         }
 

@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="ClassroomManager.UI.MasterDetail.MasterPage"
-             xmlns:pages="clr-namespace:ClassroomManager.UI.MasterDetail">
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  mc:Ignorable="d"
+                  MasterBehavior="Popover"
+                  x:Class="ClassroomManager.UI.MasterDetail.MasterPage"
+                  xmlns:pages="clr-namespace:ClassroomManager.UI.MasterDetail"
+                  xmlns:ui="clr-namespace:ClassroomManager.UI">
   <MasterDetailPage.Master>
-    <pages:MasterPageMaster x:Name="MasterPage" />
+    <pages:MasterPageMaster x:Name="MasterPageCurrent" ShowHomePage="MasterPageCurrent_ShowHomePage" />
   </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
     <NavigationPage>
       <x:Arguments>
-        <pages:MasterPageDetail />
+        <ui:MainMenuPage />
       </x:Arguments>
     </NavigationPage>
   </MasterDetailPage.Detail>

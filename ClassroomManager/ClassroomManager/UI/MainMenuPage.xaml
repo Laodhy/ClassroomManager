@@ -6,22 +6,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ClassroomManager.UI.MainMenuPage">
-    
+    <ui:AppPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="15" />
+            <Setter Property="Padding" Value="0,35,0,0" />
+            <Setter Property="HeightRequest" Value="200" />
+        </Style>
+    </ui:AppPage.Resources>
+
     <ui:AppPage.Content>
-        <FlexLayout>
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <FlexLayout Direction="Row"
+                    Wrap="Wrap" Padding="15,10" 
+                    JustifyContent="SpaceAround">
+                
+                <Button x:Name="btnNewQuiz" FlexLayout.Basis="50%"
+                        ImageSource="quizz.png" ContentLayout="Top,20"
+                        Text="Nouveau quizz" />
 
-            <Grid x:Name="gridSuiviTravail" WidthRequest="400" HeightRequest="400" />
+                <Button x:Name="btnHistoQuiz" FlexLayout.Basis="50%"
+                        ImageSource="quizz.png" ContentLayout="Top,20"
+                    Text="Historique des quizz" />
 
-            <Grid x:Name="gridNewQuiz" WidthRequest="400" HeightRequest="400" />
+                <Button x:Name="btnNewEval" FlexLayout.Basis="50%"
+                        ImageSource="evaluation.png" ContentLayout="Top,20"
+                    Text="Nouvelle évaluation" />
 
-            <Grid x:Name="gridNewEval" WidthRequest="400" HeightRequest="400" />
+                <Button x:Name="btnHistoEval" FlexLayout.Basis="50%"
+                        ImageSource="evaluation.png" ContentLayout="Top,20"
+                    Text="Historique des évaluations" />
 
-            <Grid x:Name="gridHistoQuiz" WidthRequest="400" HeightRequest="400" />
+                <Button x:Name="btnSuiviTravail" FlexLayout.Basis="50%"
+                        ImageSource="suivi.png" ContentLayout="Top,20"
+                        Text="Suivi du travail" />
 
-            <Grid x:Name="griHistoEval" WidthRequest="400" HeightRequest="400" />
-            
-            <Grid x:Name="gridListeEleve" WidthRequest="400" HeightRequest="400" />
-        </FlexLayout>
+                <Button x:Name="btnListeEleve" FlexLayout.Basis="50%"
+                        ImageSource="eleves.png" ContentLayout="Top,20"
+                    Text="Liste des élèves" />
+
+                <Button x:Name="btnDeconnexion" FlexLayout.Basis="100%"
+                        ImageSource="logout.png"  ContentLayout="Top,20"
+                    Text="Déconnexion" />
+            </FlexLayout>
+        </ScrollView>
     </ui:AppPage.Content>
-    
+
 </ui:AppPage>

@@ -35,7 +35,11 @@ namespace ClassroomManager
                     Email = DataManager.Instance.CurrentUser.Email,
                     Password = DataManager.Instance.CurrentUser.Password
                 };
-                await ApiManager.Instance.Authenticate(user);
+
+                if (!await ApiManager.Instance.Authenticate(user))
+                {
+                    MainPage = new NavigationPage(new LoginPage());
+                }
             }
         }
     }

@@ -11,20 +11,38 @@
     <item name="windowActionBar">false</item>
     <!-- Set theme colors from https://aka.ms/material-colors -->
     <!-- colorPrimary is used for the default action bar background -->
-    <item name="colorPrimary">#2196F3</item>
+    <item name="colorPrimary">#000000</item>
+    <!--<item name="colorPrimary">#000000</item>-->
+
     <!-- colorPrimaryDark is used for the status bar -->
-    <item name="colorPrimaryDark">#1976D2</item>
+    <item name="colorPrimaryDark">#000000</item>
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
-    <item name="colorAccent">#FF4081</item>
+    <item name="colorAccent">#A98C4A</item>
     <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
 
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+
+    <item name="android:actionMenuTextColor">#A98C4A</item>
+    <item name="android:textColor">#A98C4A</item>
+    <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+    <!-- List view selection color -->
+    <item name="android:colorPressedHighlight">#A98C4A</item>
+    <item name="android:colorLongPressedHighlight">#A98C4A</item>
+    <item name="android:colorFocusedHighlight">#A98C4A</item>
+    <item name="android:colorActivatedHighlight">#A98C4A</item>
+    <!--<item name="android:activatedBackgroundIndicator">#ffd700</item>-->
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
-    <item name="colorAccent">#FF4081</item>
+    <item name="colorAccent">#A98C4A</item>
+  </style>
+
+  <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+    <item name="spinBars">true</item>
+    <item name="color">#A98C4A</item>
   </style>
 </resources>

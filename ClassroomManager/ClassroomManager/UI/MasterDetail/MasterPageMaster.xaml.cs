@@ -33,11 +33,13 @@ namespace ClassroomManager.UI.MasterDetail
             {
                 MenuItems = new ObservableCollection<MasterPageMasterMenuItem>(new[]
                 {
-                    new MasterPageMasterMenuItem { Id = 0, Title = "Page 1" },
-                    new MasterPageMasterMenuItem { Id = 1, Title = "Page 2" },
-                    new MasterPageMasterMenuItem { Id = 2, Title = "Page 3" },
-                    new MasterPageMasterMenuItem { Id = 3, Title = "Page 4" },
-                    new MasterPageMasterMenuItem { Id = 4, Title = "Page 5" },
+                    new MasterPageMasterMenuItem { Id = 0, Title = "Suivi du travail" },
+                    new MasterPageMasterMenuItem { Id = 1, Title = "Nouveau quizz" },
+                    new MasterPageMasterMenuItem { Id = 2, Title = "Nouvelle évalutation" },
+                    new MasterPageMasterMenuItem { Id = 3, Title = "Historique des quizz" },
+                    new MasterPageMasterMenuItem { Id = 4, Title = "Historique des évaluations" },
+                    new MasterPageMasterMenuItem { Id = 5, Title = "Liste des élèves", TargetType=typeof(MainMenuPage) },
+                    new MasterPageMasterMenuItem { Id = 6, Title = "Déconnexion" },
                 });
             }
 
@@ -52,5 +54,12 @@ namespace ClassroomManager.UI.MasterDetail
             }
             #endregion
         }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            ShowHomePage?.Invoke(this, e);
+        }
+
+        public event EventHandler ShowHomePage;
     }
 }

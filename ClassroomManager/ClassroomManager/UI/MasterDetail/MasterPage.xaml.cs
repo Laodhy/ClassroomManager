@@ -15,22 +15,34 @@ namespace ClassroomManager.UI.MasterDetail
         public MasterPage()
         {
             InitializeComponent();
-            MasterPage.ListView.ItemSelected += ListView_ItemSelected;
+            MasterPageCurrent.ListView.ItemSelected += ListView_ItemSelected;
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as MasterPageMasterMenuItem;
-            if (item == null)
-                return;
+            try
+            {
+                var item = e.SelectedItem as MasterPageMasterMenuItem;
+                if (item == null)
+                    return;
 
-            var page = (Page)Activator.CreateInstance(item.TargetType);
-            page.Title = item.Title;
+                var page = (Page)Activator.CreateInstance(item.TargetType);
+                page.Title = item.Title;
 
-            Detail = new NavigationPage(page);
-            IsPresented = false;
+                Detail = new NavigationPage(page);
+                IsPresented = true;
 
-            MasterPage.ListView.SelectedItem = null;
+                MasterPageCurrent.ListView.SelectedItem = null;
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void MasterPageCurrent_ShowHomePage(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new MainMenuPage());
         }
     }
 }

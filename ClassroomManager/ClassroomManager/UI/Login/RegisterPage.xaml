@@ -8,16 +8,14 @@
              NavigationPage.HasNavigationBar="false"
              x:Class="ClassroomManager.UI.Login.RegisterPage">
     <ContentPage.Content>
-        <Grid HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <Grid  Margin="0,60" VerticalOptions="Start">
+            <Grid  Margin="0,60" VerticalOptions="Start" HorizontalOptions="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!--<Label Grid.Row="0" Text="Classroom Manager" FontSize="50"
-                       HorizontalTextAlignment="Center" Margin="0,20"/>-->
                 <Label Grid.Row="1" Text="Veuillez rentrer vos identifiants pour créer un nouveau compte"
                        FontSize="25" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" WidthRequest="350"/>
             </Grid>
@@ -59,6 +57,12 @@
                    FontAttributes="Italic" HorizontalOptions="Center" VerticalOptions="End"
                    FontSize="12" TextColor="Red" IsVisible="False"
                    Text="Le mot de passe n'est pas identique à sa confirmation" />
+
+            <Grid x:Name="loaderGrid" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                  BackgroundColor="#88000000" IsVisible="False">
+                <ActivityIndicator IsRunning="True" HorizontalOptions="Center" VerticalOptions="Center"  />
+            </Grid>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
