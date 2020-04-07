@@ -28,5 +28,7 @@ namespace Web.Data
 
         public DbSet<Web.Models.Classrooms.Classroom> Classroom { get; set; }
 
+        public DbSet<Web.Models.Classrooms.Eleve> Eleve { get; set; }
+
     }
 }

@@ -10,7 +10,8 @@ namespace Web.Models.Classrooms
     {
         public int Id { get; set; }
 
-        [StringLength(60, MinimumLength = 3)]
+        [Required]
+        [StringLength(60, MinimumLength = 1)]
         public string Nom { get; set; }
 
         // user ID 
