@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Web.Data;
+using Web.Helpers;
 using Web.Models.Classrooms;
 
 namespace Web.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ClassroomsController : ControllerBase
@@ -25,7 +28,8 @@ namespace Web.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Classroom>>> GetClassroom()
         {
-            return await _context.Classroom.ToListAsync();
+            return await _context.Classroom
+                .Where(x => x.OwnerID == CurrentInfos.CurrentUser.Id).ToListAsync();
         }
 
         // GET: api/Classrooms/5
@@ -80,6 +84,8 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<ActionResult<Classroom>> PostClassroom(Classroom classroom)
         {
+            classroom.OwnerID = CurrentInfos.CurrentUser.Id;
+
             _context.Classroom.Add(classroom);
             await _context.SaveChangesAsync();
 

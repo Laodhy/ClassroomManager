@@ -147,8 +147,6 @@ namespace Web.Controllers
                 return Forbid();
             } 
 
-
-
             try
             {
                 // update user 
