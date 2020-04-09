@@ -1,4 +1,5 @@
 ﻿using ClassroomManager.API;
+using ClassroomManager.Data;
 using ClassroomManager.Models;
 using ClassroomManager.UI.MasterDetail;
 using System;
@@ -84,16 +85,14 @@ namespace ClassroomManager.UI.Login
                 }
                 else
                 {
-                    //Change page
-                    App.Current.MainPage = new MasterPage();
+                    await ((App)App.Current).UserIsAuth();
                 }
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Erreur", ex.Message, "Ok");
 #if DEBUG
-                //Change page
-                App.Current.MainPage = new MasterPage();
+                await ((App)App.Current).UserIsAuth();
 #endif
             }
             finally

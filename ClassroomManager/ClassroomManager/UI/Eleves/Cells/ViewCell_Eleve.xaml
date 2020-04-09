@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ClassroomManager.UI.Eleves.Cells.ViewCell_Eleve">
+    <ViewCell.View>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.3*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{Binding Prenom}" FontSize="Medium" 
+                   Grid.Column="0" HorizontalTextAlignment="Start"/>
+
+            <Button HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" WidthRequest="60"
+                                        x:Name="DeleteBtn" Clicked="DeleteBtn_Clicked" CommandParameter="{Binding Id}"
+                                        BackgroundColor="{StaticResource ButtonRedColor}" TextColor="White"
+                                       Image="delete.png"></Button>
+        </Grid>
+    </ViewCell.View>
+</ViewCell>

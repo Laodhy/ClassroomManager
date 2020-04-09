@@ -105,12 +105,21 @@ namespace Web.Controllers
                 return NotFound();
             }
 
-            _context.Eleve.Remove(eleve);
+            RemoveEleve(eleve);
+
             await _context.SaveChangesAsync();
 
             return eleve;
         }
 
+        public void RemoveEleve(Eleve ev)
+        {
+            _context.Eleve.Remove(ev);
+
+            //Supprimer les activités par élèves pour chaques suppression d'élève
+            //LDN : TODO
+            // ----------------------------------------------------- 
+        }
         private bool EleveExists(int id)
         {
             return _context.Eleve.Any(e => e.Id == id);

@@ -18,6 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="UI\Eleves\Cells\ViewCell_Eleve.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="UI\Eleves\ListeEleves.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="UI\Login\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -33,9 +39,8 @@
     <EmbeddedResource Update="UI\MasterDetail\MasterPageMaster.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UI\Eleves\" />
+    <EmbeddedResource Update="UI\Suivi\ConfigurationSuivi.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

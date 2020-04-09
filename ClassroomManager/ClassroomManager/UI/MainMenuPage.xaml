@@ -19,7 +19,7 @@
             <FlexLayout Direction="Row"
                     Wrap="Wrap" Padding="15,10" 
                     JustifyContent="SpaceAround">
-                
+
                 <Button x:Name="btnNewQuiz" FlexLayout.Basis="50%"
                         ImageSource="quizz.png" ContentLayout="Top,20"
                         Text="Nouveau quizz" />
@@ -40,11 +40,15 @@
                         ImageSource="suivi.png" ContentLayout="Top,20"
                         Text="Suivi du travail" />
 
+                <Button x:Name="btnConfigSuivi" FlexLayout.Basis="50%"
+                        ImageSource="settings.png" ContentLayout="Top,20"
+                        Text="Configuration du suivi" />
+
                 <Button x:Name="btnListeEleve" FlexLayout.Basis="50%"
                         ImageSource="eleves.png" ContentLayout="Top,20"
-                    Text="Liste des élèves" />
+                    Text="Liste des élèves" Clicked="BtnListeEleve_Clicked"/>
 
-                <Button x:Name="btnDeconnexion" FlexLayout.Basis="100%"
+                <Button x:Name="btnDeconnexion" FlexLayout.Basis="50%"
                         ImageSource="logout.png"  ContentLayout="Top,20"
                     Text="Déconnexion" />
             </FlexLayout>

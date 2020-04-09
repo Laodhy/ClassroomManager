@@ -9,5 +9,7 @@ namespace ClassroomManager.UI
     {
 
         public virtual void ShowLoader() { }
+
+        public virtual void HideLoader() { }
     }
 }

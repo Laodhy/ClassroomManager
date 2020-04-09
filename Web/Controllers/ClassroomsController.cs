@@ -103,6 +103,22 @@ namespace Web.Controllers
             }
 
             _context.Classroom.Remove(classroom);
+
+
+            //Supprimer les élèves pour chaques suppression de classe
+            var childs = _context.Eleve.Where(e => e.IdClasse == id);
+            foreach (var item in childs)
+            {
+                new ElevesController(_context).RemoveEleve(item);
+            }
+
+            /*
+            foreach (Eleve el in _context.Eleve.Where(x => x.IdClasse == id))
+            {
+                ElevesController.
+            }*/
+            // ----------------------------------------------------- 
+
             await _context.SaveChangesAsync();
 
             return classroom;

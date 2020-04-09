@@ -5,6 +5,13 @@ using System.Text;
 
 namespace ClassroomManager.Models
 {
+    public class EleveAdded
+    {
+        public string Nom { get; set; }
+
+        public string Prenom { get; set; }
+    }
+
     public class Eleve
     {
         public int Id { get; set; }
@@ -25,6 +32,23 @@ namespace ClassroomManager.Models
         public Eleve()
         {
 
+        }
+
+        public override bool Equals(object obj)
+        {
+            // Check for null  
+            if (ReferenceEquals(obj, null))
+                return false;
+            // Check for same reference  
+            if (ReferenceEquals(this, obj))
+                return true;
+
+            var objet = (Eleve)obj;
+            return this.Id == objet.Id;
+        }
+        public override int GetHashCode()
+        {
+            return Id ^ 7;
         }
     }
 

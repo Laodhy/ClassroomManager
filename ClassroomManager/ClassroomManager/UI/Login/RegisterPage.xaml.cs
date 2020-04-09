@@ -72,8 +72,7 @@ namespace ClassroomManager.UI.Login
                 }
                 else
                 {
-                    //Change page
-                    App.Current.MainPage = new MasterPage();
+                    await ((App)App.Current).UserIsAuth();
                 }
             }
             catch (Exception ex)

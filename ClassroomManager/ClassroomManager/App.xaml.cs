@@ -2,7 +2,9 @@
 using ClassroomManager.Data;
 using ClassroomManager.Models;
 using ClassroomManager.UI.Login;
+using ClassroomManager.UI.MasterDetail;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -41,6 +43,13 @@ namespace ClassroomManager
                     MainPage = new NavigationPage(new LoginPage());
                 }
             }
+        }
+
+        public async Task UserIsAuth()
+        {
+            await DataManager.Instance.Init();
+            //Change page
+            App.Current.MainPage = new MasterPage();
         }
     }
 }

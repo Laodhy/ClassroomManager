@@ -12,5 +12,10 @@ namespace ClassroomManager.API
             "http://10.0.2.2:5000" : 
             "https://localhost:5001/api/";
 
+        public static string RegisterUser = "users/register";
+        public static string AuthenticateUser = "users/authenticate";
+
+        public static string Classrooms = "classrooms";
+        public static string Eleves = "eleves/{0}";
     }
 }

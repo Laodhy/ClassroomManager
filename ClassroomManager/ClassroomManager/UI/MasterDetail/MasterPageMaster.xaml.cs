@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassroomManager.UI.Eleves;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -33,12 +34,13 @@ namespace ClassroomManager.UI.MasterDetail
             {
                 MenuItems = new ObservableCollection<MasterPageMasterMenuItem>(new[]
                 {
-                    new MasterPageMasterMenuItem { Id = 0, Title = "Suivi du travail" },
                     new MasterPageMasterMenuItem { Id = 1, Title = "Nouveau quizz" },
-                    new MasterPageMasterMenuItem { Id = 2, Title = "Nouvelle évalutation" },
                     new MasterPageMasterMenuItem { Id = 3, Title = "Historique des quizz" },
+                    new MasterPageMasterMenuItem { Id = 2, Title = "Nouvelle évalutation" },
                     new MasterPageMasterMenuItem { Id = 4, Title = "Historique des évaluations" },
-                    new MasterPageMasterMenuItem { Id = 5, Title = "Liste des élèves", TargetType=typeof(MainMenuPage) },
+                    new MasterPageMasterMenuItem { Id = 0, Title = "Suivi du travail" },
+                    new MasterPageMasterMenuItem { Id = 7, Title = "Configuration du suivi" },
+                    new MasterPageMasterMenuItem { Id = 5, Title = "Liste des élèves", TargetType=typeof(ListeEleves) },
                     new MasterPageMasterMenuItem { Id = 6, Title = "Déconnexion" },
                 });
             }
