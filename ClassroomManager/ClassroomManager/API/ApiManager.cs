@@ -274,7 +274,96 @@ namespace ClassroomManager.API
                 throw new Exception("Erreur lors de la suppression d'un élève");
             }
         }
+        #endregion  
+        // ====================================================================
+        #region Matieres
+
+        public async Task<List<Matiere>> GetListMatieresByIdClassroom(int idClassroom)
+        {
+            try
+            {
+                if (DataManager.Instance.CurrentUser == null || !IsConnected)
+                    throw new Exception();
+
+                List<Matiere> list = new List<Matiere>();
+
+                HttpResponseMessage response =
+                    await _client.GetAsync(string.Format(ApiConstantes.Matieres, idClassroom));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //Set the current User for the application
+                    string content = await response.Content.ReadAsStringAsync();
+                    list = JsonConvert.DeserializeObject<List<Matiere>>(content);
+                }
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur lors de la récupération de la liste des matières");
+            }
+        }
+
+
+        public async Task<Matiere> AddMatiereByIdClassroom(int idClassroom, MatiereAdded mat)
+        {
+            try
+            {
+                if (DataManager.Instance.CurrentUser == null || !IsConnected)
+                    throw new Exception();
+
+                var serializedItem = JsonConvert.SerializeObject(mat);
+                HttpResponseMessage response = await _client.PostAsync(
+                    string.Format(ApiConstantes.Matieres, idClassroom),
+                    new StringContent(serializedItem, Encoding.UTF8, "application/json")
+                );
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //Set the current User for the application
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<Matiere>(content);
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur lors de la création d'une nouvelle matière");
+            }
+        }
+
+        public async Task<Matiere> DeleteMatiereById(int id)
+        {
+            try
+            {
+                if (DataManager.Instance.CurrentUser == null || !IsConnected)
+                    throw new Exception();
+
+                HttpResponseMessage response = await _client.DeleteAsync(string.Format(ApiConstantes.Matieres, id));
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //Set the current User for the application
+                    string content = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<Matiere>(content);
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur lors de la suppression d'une matière");
+            }
+        }
+
         #endregion
+
         // ====================================================================
     }
 }

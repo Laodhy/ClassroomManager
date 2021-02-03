@@ -68,6 +68,9 @@ namespace ClassroomManager.Data
         {
             try
             {
+                if (ListClasses.FirstOrDefault(x => x.Nom == c.Nom) != null)
+                    throw new Exception("Une classe avec ce nom existe déjà !");
+
                 Classe classroom = await ApiManager.Instance.AddClassroom(c);
                 ListClasses.Add(classroom);
             }
@@ -130,6 +133,49 @@ namespace ClassroomManager.Data
             catch (Exception ex)
             {
                 AlertError.ShowErrorAlert(ex.Message);
+            }
+        }
+        #endregion
+        // =============================================================================
+        #region Matieres
+
+        public async Task<ObservableCollection<Matiere>> GetListMatieresByIdClassroom(int idClassroom)
+        {
+
+            try
+            {
+                return new ObservableCollection<Matiere>(
+                    await ApiManager.Instance.GetListMatieresByIdClassroom(idClassroom));
+            }
+            catch (Exception ex)
+            {
+                AlertError.ShowErrorAlert(ex.Message);
+                return null;
+            }
+        }
+        public async Task<Matiere> AddMatiere(int idClassroom, MatiereAdded e)
+        {
+            try
+            {
+                return await ApiManager.Instance.AddMatiereByIdClassroom(idClassroom, e);
+            }
+            catch (Exception ex)
+            {
+                AlertError.ShowErrorAlert(ex.Message);
+                return null;
+            }
+        }
+
+        public async Task<Matiere> DeleteMatiere(int id)
+        {
+            try
+            {
+               return await ApiManager.Instance.DeleteMatiereById(id);
+            }
+            catch (Exception ex)
+            {
+                AlertError.ShowErrorAlert(ex.Message);
+                return null;
             }
         }
         #endregion

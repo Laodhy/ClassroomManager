@@ -30,5 +30,7 @@ namespace Web.Data
 
         public DbSet<Web.Models.Classrooms.Eleve> Eleve { get; set; }
 
+        public DbSet<Web.Models.Classrooms.Matiere> Matiere { get; set; }
+
     }
 }

@@ -1,5 +1,4 @@
-﻿using ClassroomManager.UI.Eleves;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -39,8 +38,8 @@ namespace ClassroomManager.UI.MasterDetail
                     new MasterPageMasterMenuItem { Id = 2, Title = "Nouvelle évalutation" },
                     new MasterPageMasterMenuItem { Id = 4, Title = "Historique des évaluations" },
                     new MasterPageMasterMenuItem { Id = 0, Title = "Suivi du travail" },
-                    new MasterPageMasterMenuItem { Id = 7, Title = "Configuration du suivi" },
-                    new MasterPageMasterMenuItem { Id = 5, Title = "Liste des élèves", TargetType=typeof(ListeEleves) },
+                    new MasterPageMasterMenuItem { Id = 7, Title = "Configuration du suivi", TargetType=typeof(Suivi.ConfigurationSuivi) },
+                    new MasterPageMasterMenuItem { Id = 5, Title = "Liste des élèves", TargetType=typeof(Eleves.ListeEleves) },
                     new MasterPageMasterMenuItem { Id = 6, Title = "Déconnexion" },
                 });
             }

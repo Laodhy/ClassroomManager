@@ -34,6 +34,14 @@ namespace ClassroomManager.UI
                 = new NavigationPage(page);
         }
 
+        private void BtnConfigSuivi_Clicked(object sender, EventArgs e)
+        {
+            Suivi.ConfigurationSuivi page = new Suivi.ConfigurationSuivi();
+
+            (Application.Current.MainPage as UI.MasterDetail.MasterPage).Detail
+                = new NavigationPage(page);
+        }
+
         #endregion
         // ====================================================================
     }

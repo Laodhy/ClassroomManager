@@ -17,5 +17,6 @@ namespace ClassroomManager.API
 
         public static string Classrooms = "classrooms";
         public static string Eleves = "eleves/{0}";
+        public static string Matieres = "matieres/{0}";
     }
 }

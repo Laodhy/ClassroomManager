@@ -4,13 +4,96 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
              x:Class="ClassroomManager.UI.Suivi.ConfigurationSuivi">
     <ui:AppPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!--  MATIERES ============================================================================= -->
+            <Grid x:Name="MatieresGrid" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+
+                <StackLayout Orientation="Horizontal" Grid.Row="0">
+
+                    <Entry x:Name="MatiereEntry" Placeholder="Ajouter une matière..." HorizontalOptions="FillAndExpand" Margin="10,5"
+                   Completed="MatiereEntry_Completed" Grid.Column="0" Keyboard="Text"/>
+
+                    <Button Image="add.png" BackgroundColor="{StaticResource GoldColor}" WidthRequest="40" HeightRequest="40"
+                            HorizontalOptions="Start" VerticalOptions="Center" Padding="5,0" Margin="0,5"
+                            Clicked="MatiereEntry_Completed" BorderWidth="2" BorderColor="Black">
+                    </Button>
+
+                </StackLayout>
+
+                <ListView x:Name="MatieresList" Grid.Row="1" ItemSelected="MatiereList_ItemSelected">
+                    <!--<ListView.ItemTemplate>
+                        <DataTemplate>
+                            <cells:ViewCell_Matiere MatiereDeleted="ViewCell_Matiere_MatiereDeleted" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>-->
+                </ListView>
+
+            </Grid>
+
+            <BoxView Grid.Column="1" BackgroundColor="Black" WidthRequest="2" VerticalOptions="FillAndExpand" />
+            <!--  ACTIVITES ============================================================================= -->
+
+            <!--<controls:CreateActivitiesView x:Name="CreateActivitiesViewCtrl" Grid.Column="2"
+                                           ActivityAddedOrEdit="CreateActivitiesViewCtrl_ActivityAddedOrEdit" />-->
+
+            <!--  GROUPES ============================================================================= -->
+
+            <BoxView Grid.Column="3" BackgroundColor="Black" WidthRequest="2" VerticalOptions="FillAndExpand" />
+
+            <Grid x:Name="GroupesGrid" Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+
+                <StackLayout Orientation="Horizontal" Grid.Row="0">
+
+                    <Entry x:Name="GroupeEntry" Placeholder="Ajouter un groupe..." HorizontalOptions="FillAndExpand" Margin="10,5"
+                   Completed="GroupeEntry_Completed" Grid.Column="0" Keyboard="Text"/>
+
+                    <Button Image="add.png" BackgroundColor="{StaticResource GoldColor}" WidthRequest="40" HeightRequest="40"
+                            HorizontalOptions="Start" VerticalOptions="Center" Padding="5,0" Margin="0,5"
+                            Clicked="GroupeEntry_Completed" BorderWidth="2" BorderColor="Black" />
+
+                </StackLayout>
+
+                <ListView x:Name="GroupeList" Grid.Row="1" ItemSelected="GroupeList_ItemSelected">
+                    <!--<ListView.ItemTemplate>
+                        <DataTemplate>
+                            <cells:ViewCell_Groupe GroupeDeleted="ViewCell_Groupe_GroupeDeleted" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>-->
+                </ListView>
+
+            </Grid>
+
+            <!--  ============================================================================= -->
+
+
+            <!--  POPUP GROUPE ============================================================================= -->
+
+            <!--<controls:PopupGroupeCtrl Grid.ColumnSpan="5" x:Name="PopupGroupeGrid" IsVisible="False" GroupeCreated="PopupGroupeGrid_GroupeCreated"/>
+
+            <controls:PopupAddActivity Grid.ColumnSpan="5" x:Name="PopupAddActivityGrid" IsVisible="False" ActivityCreated="PopupAddActivityGrid_ActivityCreated"/>-->
+
+        </Grid>
+
     </ui:AppPage.Content>
 </ui:AppPage>

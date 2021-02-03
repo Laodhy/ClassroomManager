@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,59 +10,58 @@ using Web.Models.Classrooms;
 
 namespace Web.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class ElevesController : ControllerBase
+    public class MatieresController : ControllerBase
     {
         private readonly WebContext _context;
 
-        public ElevesController(WebContext context)
+        public MatieresController(WebContext context)
         {
             _context = context;
         }
 
-        // GET: api/Eleves
+        // GET: api/Matieres
         [HttpGet("{idClass}")]
-        public async Task<ActionResult<IEnumerable<Eleve>>> GetEleve(int idClass)
+        public async Task<ActionResult<IEnumerable<Matiere>>> GetMatiere(int idClass)
         {
             if (await _context.Classroom.FindAsync(idClass) == null)
                 return NotFound(idClass);
 
-            return await _context.Eleve
+            return await _context.Matiere
                 .Where(x => x.IdClasse == idClass).ToListAsync();
         }
 
-        // GET: api/Eleves/5
+        // GET: api/Matieres/5
         [HttpGet("{idClass}/{id}")]
-        public async Task<ActionResult<Eleve>> GetEleve(int idClass, int id)
+        public async Task<ActionResult<Matiere>> GetMatiere(int idClass, int id)
         {
             if (await _context.Classroom.FindAsync(idClass) == null)
                 return NotFound(idClass);
 
-            var listElevByClass = await _context.Eleve.Where(x => x.IdClasse == idClass).ToListAsync();
-            var eleve = listElevByClass.Find(x => x.Id == id);
+            var listMatByClass = await _context.Matiere.Where(x => x.IdClasse == idClass).ToListAsync();
+            var matiere = listMatByClass.Find(x => x.Id == id);
 
-            if (eleve == null)
+            if (matiere == null)
             {
                 return NotFound();
             }
 
-            return eleve;
+            return matiere;
         }
 
-        // PUT: api/Eleves/5
+        // PUT: api/Matieres/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEleve(int id, Eleve eleve)
+        public async Task<IActionResult> PutMatiere(int id, Matiere matiere)
         {
-            if (id != eleve.Id)
+            if (id != matiere.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(eleve).State = EntityState.Modified;
+            _context.Entry(matiere).State = EntityState.Modified;
 
             try
             {
@@ -71,7 +69,7 @@ namespace Web.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EleveExists(id))
+                if (!MatiereExists(id))
                 {
                     return NotFound();
                 }
@@ -84,51 +82,42 @@ namespace Web.Controllers
             return NoContent();
         }
 
-        // POST: api/Eleves
+        // POST: api/Matieres
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost("{idClass}")]
-        public async Task<ActionResult<Eleve>> PostEleve(int idClass, Eleve eleve)
+        public async Task<ActionResult<Matiere>> PostMatiere(int idClass, Matiere matiere)
         {
             if (await _context.Classroom.FindAsync(idClass) == null)
                 return NotFound(idClass);
 
-            eleve.IdClasse = idClass;
+            matiere.IdClasse = idClass;
 
-            _context.Eleve.Add(eleve);
+            _context.Matiere.Add(matiere);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEleve", new { idClass, id = eleve.Id }, eleve);
+            return CreatedAtAction("GetMatiere", new { idClass,  id = matiere.Id }, matiere);
         }
 
-        // DELETE: api/Eleves/5
+        // DELETE: api/Matieres/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Eleve>> DeleteEleve(int id)
+        public async Task<ActionResult<Matiere>> DeleteMatiere(int id)
         {
-            var eleve = await _context.Eleve.FindAsync(id);
-            if (eleve == null)
+            var matiere = await _context.Matiere.FindAsync(id);
+            if (matiere == null)
             {
                 return NotFound();
             }
 
-            RemoveEleve(eleve);
-
+            _context.Matiere.Remove(matiere);
             await _context.SaveChangesAsync();
 
-            return eleve;
+            return matiere;
         }
 
-        public void RemoveEleve(Eleve ev)
+        private bool MatiereExists(int id)
         {
-            _context.Eleve.Remove(ev);
-
-            //Supprimer les activités par élèves pour chaques suppression d'élève
-            //LDN : TODO
-            // ----------------------------------------------------- 
-        }
-        private bool EleveExists(int id)
-        {
-            return _context.Eleve.Any(e => e.Id == id);
+            return _context.Matiere.Any(e => e.Id == id);
         }
     }
 }

@@ -27,6 +27,7 @@ namespace ClassroomManager.Models
                 return Nom + " " + Prenom;
             }
         }
+
         public int IdClasse { get; set; }
 
         public Eleve()
@@ -77,6 +78,7 @@ namespace ClassroomManager.Models
         }
 
         // =============================================================================
+        #region INotify
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)
@@ -85,5 +87,6 @@ namespace ClassroomManager.Models
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
+        #endregion
     }
 }

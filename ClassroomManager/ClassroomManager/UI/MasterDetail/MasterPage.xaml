@@ -8,14 +8,14 @@
                   x:Class="ClassroomManager.UI.MasterDetail.MasterPage"
                   xmlns:pages="clr-namespace:ClassroomManager.UI.MasterDetail"
                   xmlns:ui="clr-namespace:ClassroomManager.UI">
-  <MasterDetailPage.Master>
-    <pages:MasterPageMaster x:Name="MasterPageCurrent" ShowHomePage="MasterPageCurrent_ShowHomePage" />
-  </MasterDetailPage.Master>
-  <MasterDetailPage.Detail>
-    <NavigationPage>
-      <x:Arguments>
-        <ui:MainMenuPage />
-      </x:Arguments>
-    </NavigationPage>
-  </MasterDetailPage.Detail>
+    <MasterDetailPage.Master>
+        <pages:MasterPageMaster x:Name="MasterPageCurrent" ShowHomePage="MasterPageCurrent_ShowHomePage" />
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ui:MainMenuPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
 </MasterDetailPage>

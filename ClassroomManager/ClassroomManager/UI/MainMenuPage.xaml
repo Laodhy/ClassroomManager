@@ -42,7 +42,7 @@
 
                 <Button x:Name="btnConfigSuivi" FlexLayout.Basis="50%"
                         ImageSource="settings.png" ContentLayout="Top,20"
-                        Text="Configuration du suivi" />
+                        Text="Configuration du suivi" Clicked="BtnConfigSuivi_Clicked"/>
 
                 <Button x:Name="btnListeEleve" FlexLayout.Basis="50%"
                         ImageSource="eleves.png" ContentLayout="Top,20"
